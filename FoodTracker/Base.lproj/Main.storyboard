@@ -116,16 +116,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="K1F-GN-uVj">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KQg-2M-fqT"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="awI-8t-Lbh"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KQg-2M-fqT">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="2ZB-EU-qGr"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="awI-8t-Lbh">
+                            <connections>
+                                <segue destination="VTy-dM-2F0" kind="unwind" identifier="saveItem" unwindAction="unwindToMealListWithSender:" id="HrB-PB-qng"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="jXx-pr-9Jo" id="ROj-Oi-QDW"/>
                         <outlet property="photoImageView" destination="oWm-ad-3L7" id="mSW-As-3Hn"/>
                         <outlet property="ratingControl" destination="2iV-uz-FxJ" id="IfI-Pm-aAC"/>
+                        <outlet property="saveButton" destination="awI-8t-Lbh" id="soe-JG-KXc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="VTy-dM-2F0" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="nvx-k5-Ts1">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="cnq-lR-tmD"/>
